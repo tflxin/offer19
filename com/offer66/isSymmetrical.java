@@ -17,7 +17,7 @@ public class isSymmetrical {
      }
      if (leftNode.val == rightNode.val){
          return isSymmertricalHelper(leftNode.left,rightNode.right)
-                 && isSymmertricalHelper(leftNode.right,rightNode.left)
+                 && isSymmertricalHelper(leftNode.right,rightNode.left);
      }
      return false;
    }
