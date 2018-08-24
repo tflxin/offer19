@@ -4,6 +4,10 @@ package com.offer66;
  * 数值为0或者字符串不是一个合法的数值则返回0。
  */
 
+import java.util.Scanner;
+
+import static com.offer66.main.stringToInt;
+
 /**
  这一题的坑比较多，主要考虑以下几点
  1.字符串的前缀空格需要省略
@@ -11,83 +15,70 @@ package com.offer66;
  3.连续的数字被其他符号隔开，则返回0，如“   123a321”,"   123    123"，都是返回0
  4.如果超出了int范围（-2147483648--2147483647),返回临界最大值，也就是说如果是负数返回-2147483648，整数则返回2147483647
 
- 边界条件：
- 数据上下 溢出
- 空字符串
- 只有正负号
- 有无正负号
- 错误标志输出*/
+ *要点： 1. 异常输入和0输入的区分，设置一个全局变量
+ 2. 正负号的处理
+ 3. 溢出处理*/
+
 
 public class StrToInt {
-    public static int stringToInt(String num) {
-        if (num == null || num.length() < 1) {
-            throw new NumberFormatException(num);
+    public static int StrToInt(String str) {
+        //对结果的保存
+        int result = 0;
+        //对符号的标志   1  0 -1    默认为正
+        int symbol = 1;
+        //判断输入的值是否为0
+        boolean isValid = false;
+        //对传入的字符串进行转换成数组
+        char[] array = str.toCharArray();
+        if (array == null || array.length <= 0) {
+            return 0;
         }
-        char first = num.charAt(0);
-        if (first == '-') {
-            return parseString(num, 1, false);
-        } else if (first == '+') {
-            return parseString(num, 1, true);
-        } else if (first <= '9' && first >= '0') {
-            return parseString(num, 0, true);
-        } else {
-            throw new NumberFormatException(num);
+        //如果输入第一个位为- 则更改标志为-1
+        if (array[0] == '-' ) {
+            symbol = -1;
         }
-    }
-    /**
-     * 判断字符是否是数字
-     * @param c 字符
-     * @return true是，false否
-     */
-    private static boolean isDigit(char c) {
-        return c >= '0' && c <= '9';
-    }
-    /**
-     * 对字符串进行解析
-     * @param num      数字串
-     * @param index    开始解析的索引
-     * @param positive 是正数还是负数
-     * @return 返回结果
-     */
-    private static int parseString(String num, int index, boolean positive) {
-        if (index >= num.length()) {
-            throw new NumberFormatException(num);
-        }
-        int result;
-        long tmp = 0;
-        while (index < num.length() && isDigit(num.charAt(index))) {
-            tmp = tmp * 10 + num.charAt(index) - '0';
-            // 保证求的得的值不超出整数的最大绝对值
-            if (tmp > 0x80000000L) {
-                throw new NumberFormatException(num);
+        //对正负号的处理需要过滤掉第一位为正负号   直接对符号进行循环前过滤
+        for(int i =  (array[0] == '+' || array[0] == '-') ? 1 : 0; i < array.length; i++){
+            //对输入内容进行校验输入值不再0-9范围
+            if (!('0' <= array[i] && array[i] <= '9') ){
+                isValid = true;
+                return 0;
             }
-            index++;
-        }
-        if (positive) {
-            if (tmp >= 0x80000000L) {
-                throw new NumberFormatException(num);
-            } else {
-                result = (int) tmp;
-            }
-        } else {
-            if (tmp == 0x80000000L) {
-                result = 0x80000000;
-            } else {
-                result = (int) -tmp;
+            //对得到结果结果处理   //res=res*10+arr[i]-'0'
+            result = result * 10  + array[i] - '0';
+            //result = (result << 1) + (result  <<3) + (array[i] & 0xf);
+            //对溢出进行判断
+            if ((symbol == 1 && result > Integer.MAX_VALUE) || (symbol == -1 && result < Integer.MIN_VALUE)) {
+                isValid = true;
+                return 0;
             }
         }
-        return result;
+        return result * symbol;
     }
-    public static void main(String[] args) {
 
-        System.out.println(stringToInt("123"));
-       // System.out.println(stringToInt("+123"));
-       // System.out.println(stringToInt("-123"));
-        //System.out.println(stringToInt("1a123"));
-       // System.out.println(stringToInt("+2147483647"));
-       // System.out.println(stringToInt("-2147483647"));
-       // System.out.println(stringToInt("+2147483648"));
-        System.out.println(stringToInt("-21474836489999"));
+    public static void main(String[] args) {
+       /**
+        * 这样输出对于异常有错误
+        * try {
+             Scanner sc = new Scanner(System.in);
+             System.out.println("请输入字符串");
+             String str = sc.nextLine();
+             sc.close();
+             System.out.println(stringToInt(str));
+        } catch (Exception e) {
+                      e.printStackTrace();
+                 }
+*/
+
+
+        // System.out.println(stringToInt("123"));
+        // System.out.println(stringToInt("+123"));
+        // System.out.println(stringToInt("-123"));
+        System.out.println(StrToInt("2a123"));
+       // System.out.println(StrToInt("+2147483647"));
+        // System.out.println(stringToInt("-2147483647"));
+        // System.out.println(stringToInt("+2147483648"));
+        // System.out.println(stringToInt("-21474836489999"));
 
     }
 }
