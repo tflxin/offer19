@@ -2,6 +2,7 @@ package com.offer66;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.lang.StringBuffer;
 
 public class replaceSpace {
     public static void main(String[] args){
