@@ -65,7 +65,6 @@ public class ReverseSentence {
             e.printStackTrace();
         }
         System.out.println(str);
-
         System.out.println(ReverseSentence(str.toString()));
 
     }
