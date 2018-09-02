@@ -2,7 +2,7 @@ package com.offer66;
 
 import java.util.LinkedList;
 
-public class middle {
+public class Middle {
     LinkedList<Integer> list = new LinkedList<Integer>();
     public void Inser(Integer num){
         if (list.size()==0|| num<list.getFirst()){
@@ -47,15 +47,15 @@ public class middle {
      * 因为要保证最大堆的元素要比最小堆的元素都要小。
      * @param num
      */
-/**import java.util.PriorityQueue;
- import java.util.Comparator;
- public class Solution {
- private int count = 0;  // 数据流中的数据个数
+/** import java.util.PriorityQueue;
+     import java.util.Comparator;
+     public class Solution {
+     private int count = 0;  // 数据流中的数据个数
  // 优先队列集合实现了堆，默认实现的小根堆
- private PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+    private PriorityQueue<Integer> minHeap = new PriorityQueue<>();
  // 定义大根堆，更改比较方式
- private PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(15, new Comparator<Integer>() {
-@Override
+    private PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(15, new Comparator<Integer>() {
+    @Override
 public int compare(Integer o1, Integer o2) {
 return o2 - o1;     // o1 - o2 则是小根堆
 }
