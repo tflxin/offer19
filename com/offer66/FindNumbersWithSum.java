@@ -1,7 +1,5 @@
 package com.offer66;
 
-import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
