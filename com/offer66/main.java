@@ -1,7 +1,5 @@
 package com.offer66;
 
-import java.util.Scanner;
-
 public class main {
 
     /**
@@ -72,16 +70,16 @@ public class main {
         return result;
     }
     public static void main(String[] args) {
-//        System.out.println(Integer.parseInt(Integer.MIN_VALUE + ""));
-//        System.out.println(0x8000_0000L);
-//        System.out.println(stringToInt(""));
+//        SystemInt.out.println(Integer.parseInt(Integer.MIN_VALUE + ""));
+//        SystemInt.out.println(0x8000_0000L);
+//        SystemInt.out.println(stringToInt(""));
         System.out.println(stringToInt("2a123"));
        /** try {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("请输入字符串");
+            Scanner sc = new Scanner(SystemInt.in);
+            SystemInt.out.println("请输入字符串");
             String str = sc.nextLine();
             sc.close();
-            System.out.println(stringToInt(str));
+            SystemInt.out.println(stringToInt(str));
         } catch (Exception e) {
             e.printStackTrace();
         }
