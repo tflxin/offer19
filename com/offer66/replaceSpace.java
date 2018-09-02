@@ -10,7 +10,7 @@ public class replaceSpace {
 
         StringBuffer str = new StringBuffer();
         BufferedInputStream buff = new BufferedInputStream(System.in);
-        //BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
+        //BufferedReader buff = new BufferedReader(new InputStreamReader(SystemInt.in));
         System.out.println("请输入");
         char inChar;
         try {
