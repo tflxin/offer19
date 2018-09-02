@@ -4,10 +4,6 @@ package com.offer66;
  * 数值为0或者字符串不是一个合法的数值则返回0。
  */
 
-import java.util.Scanner;
-
-import static com.offer66.main.stringToInt;
-
 /**
  这一题的坑比较多，主要考虑以下几点
  1.字符串的前缀空格需要省略
@@ -60,25 +56,25 @@ public class StrToInt {
        /**
         * 这样输出对于异常有错误
         * try {
-             Scanner sc = new Scanner(System.in);
-             System.out.println("请输入字符串");
+             Scanner sc = new Scanner(SystemInt.in);
+             SystemInt.out.println("请输入字符串");
              String str = sc.nextLine();
              sc.close();
-             System.out.println(stringToInt(str));
+             SystemInt.out.println(stringToInt(str));
         } catch (Exception e) {
                       e.printStackTrace();
                  }
 */
 
 
-        // System.out.println(stringToInt("123"));
-        // System.out.println(stringToInt("+123"));
-        // System.out.println(stringToInt("-123"));
+        // SystemInt.out.println(stringToInt("123"));
+        // SystemInt.out.println(stringToInt("+123"));
+        // SystemInt.out.println(stringToInt("-123"));
         System.out.println(StrToInt("2a123"));
-       // System.out.println(StrToInt("+2147483647"));
-        // System.out.println(stringToInt("-2147483647"));
-        // System.out.println(stringToInt("+2147483648"));
-        // System.out.println(stringToInt("-21474836489999"));
+       // SystemInt.out.println(StrToInt("+2147483647"));
+        // SystemInt.out.println(stringToInt("-2147483647"));
+        // SystemInt.out.println(stringToInt("+2147483648"));
+        // SystemInt.out.println(stringToInt("-21474836489999"));
 
     }
 }
