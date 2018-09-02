@@ -54,8 +54,8 @@ public class IsPopOrder {
         int[] a = {1,2,3,4,5};
         //出栈序列
         int[] b = {5,4,3,2,1};
-       // System.out.println(a);
-       // System.out.println(b);
+       // SystemInt.out.println(a);
+       // SystemInt.out.println(b);
      System.out.println(IsPopOrder(a,b));
         System.out.println(IsPopOrder1(a,b));
     }
