@@ -1,7 +1,5 @@
 package com.offer66;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
-
 /**
  * isContinuous
  * 首先把数组排序，再统计数组中0 的个数，最后统计排序之后的数组中相邻数字之间的空缺总数。
