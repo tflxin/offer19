@@ -1,6 +1,5 @@
 package com.offer66;
 
-import javax.print.attribute.IntegerSyntax;
 import java.util.ArrayList;
 import java.util.Scanner;
 
