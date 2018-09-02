@@ -63,9 +63,6 @@ public class PrintCen2 {
 
         return arrayLists;
     }
-
-
-
     private TreeNode createBinaryTreeByArray(int[] array, int index) {
         TreeNode tn = null;
         if (index < array.length) {
