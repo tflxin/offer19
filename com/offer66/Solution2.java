@@ -73,6 +73,6 @@ public class Solution2 {
                 'a','d','e','e'};
         String str = "abceseecfdas";
         Solution2 offer_66 = new Solution2();
-        System.out.println(offer_66.hasPath(matrix, 3, 4, str.toCharArray()));
+       System.out.println(offer_66.hasPath(matrix, 3, 4, str.toCharArray()));
     }
 }
