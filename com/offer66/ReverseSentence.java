@@ -50,7 +50,7 @@ public class ReverseSentence {
 
         StringBuffer str = new StringBuffer();
         BufferedInputStream buff = new BufferedInputStream(System.in);
-        //BufferedReader buff = new BufferedReader(new InputStreamReader(System.in));
+        //BufferedReader buff = new BufferedReader(new InputStreamReader(SystemInt.in));
         System.out.println("请输入");
         char inChar;
         try {
@@ -64,7 +64,7 @@ public class ReverseSentence {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(str);
+       System.out.println(str);
         System.out.println(ReverseSentence(str.toString()));
 
     }
